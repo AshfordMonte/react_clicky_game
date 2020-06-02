@@ -1,4 +1,5 @@
 import React from "react";
+import './styles/navbar.css';
 
 class Navbar extends React.Component {
   state = {
@@ -8,14 +9,14 @@ class Navbar extends React.Component {
 
   render() {
     return (
-        <nav className="navbar navbar-dark bg-secondary">
-          <a class="navbar-brand" href="/">
+        <nav className="navbar navbar-dark bg-dark">
+          <a className="navbar-brand" href="/">
             React Clicky Game
-            </a>
-          <span class="navbar-text">
+          </a>
+          <span className="navbar-text">
             Click any image to start!
           </span>
-          <span class="navbar-text">
+          <span className="navbar-text">
             Score: {this.state.currentScore} | Top Score: {this.state.topScore}
           </span>
         </nav>
