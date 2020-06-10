@@ -9,7 +9,7 @@ class Navbar extends React.Component {
 
   render() {
     return (
-        <nav className="navbar navbar-dark bg-dark">
+        <nav className="navbar navbar-dark bg-dark fixed-top">
           <a className="navbar-brand" href="/">
             React Clicky Game
           </a>
