@@ -7,12 +7,13 @@ import image4 from "./images/puppy4.jpg";
 import image5 from "./images/puppy5.jpg";
 import image6 from "./images/puppy6.jpg";
 
+// Randomizes array of images
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
   }
-  return array;
+  return array; // Required in order for state to update
 }
 
 class Game extends React.Component {
@@ -20,8 +21,9 @@ class Game extends React.Component {
     images: [image1, image2, image3, image4, image5, image6]
   }
   
-  handleClick = (e) => {
-    this.setState({images: shuffleArray(this.state.images)})
+  handleClick = (src, e) => {
+    console.log(src.slice(14, 20));
+    this.setState({images: shuffleArray(this.state.images)});
   }
 
   render () {
@@ -29,7 +31,8 @@ class Game extends React.Component {
       <div className="container">
         {
           this.state.images.map((src, i) => {
-            return <img onClick={this.handleClick} className="click-item" alt="A cute puppy!" src={src} key={i}></img>;
+            return <img onClick={(e) => this.handleClick(src, e)} className="click-item" alt="A cute puppy!"
+             src={src} key={i}></img>;
           })
         }
       </div>
